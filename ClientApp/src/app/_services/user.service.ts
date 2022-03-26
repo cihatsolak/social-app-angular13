@@ -28,4 +28,11 @@ export class UserService {
       `${this.serviceUri}getuser/${id}`
     );
   }
+
+  updateUser(userDetail: UserDetail): Observable<ApiResponse<null>> {
+    return this.httpClient.put<ApiResponse<null>>(
+      `${this.serviceUri}updateuser/${userDetail.id}`,
+      userDetail
+    );
+  }
 }

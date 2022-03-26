@@ -22,6 +22,8 @@ import { ErrorInterceptor } from './_services/error.intercaptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MemberDetailsComponent } from './members/member-details/member-details.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -42,6 +44,7 @@ export function tokenGetter() {
     NotfoundComponent,
     MemberDetailsComponent,
     PhotoGalleryComponent,
+    MemberEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +67,7 @@ export function tokenGetter() {
       useClass: ErrorInterceptor,
       multi: true,
     },
+    MemberEditResolver,
   ],
   bootstrap: [AppComponent],
 })

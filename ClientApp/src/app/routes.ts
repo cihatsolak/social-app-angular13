@@ -6,6 +6,8 @@ import { MemberListComponent } from './member-list/member-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AuthGuard } from './_guards/auth-guards';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +16,12 @@ export const appRoutes: Routes = [
   {
     path: 'members/:id',
     component: MemberDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'member/edit',
+    component: MemberEditComponent,
+    resolve: { ApiResponse: MemberEditResolver },
     canActivate: [AuthGuard],
   },
   { path: 'friends', component: FriendListComponent, canActivate: [AuthGuard] },

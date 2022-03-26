@@ -1,6 +1,6 @@
 ﻿namespace ServerApp.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class UsersController : BaseApiController
     {
         private readonly ISocialRepository _socialRepository;
