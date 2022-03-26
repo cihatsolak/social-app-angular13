@@ -9,7 +9,8 @@ export class User {
   createdDate!: Date;
   lastActive!: Date;
   city!: string;
+  country!: string;
   introduction!: string;
   hobbies!: string;
-  images!: Image[];
+  image!: Image;
 }
