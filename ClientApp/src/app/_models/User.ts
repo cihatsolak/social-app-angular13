@@ -14,3 +14,8 @@ export class User {
   hobbies!: string;
   image!: Image;
 }
+
+export class UserDetail extends User {
+  profileImageUrl!: string;
+  images!: Image[];
+}

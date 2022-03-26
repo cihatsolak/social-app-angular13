@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiResponse } from '../_models/apiresponse';
-import { User } from '../_models/User';
+import { ApiResponse } from '../_models/ApiResponse';
+import { User, UserDetail } from '../_models/User';
 
 // const httpOptions = {
 //   headers: new HttpHeaders({
@@ -23,7 +23,9 @@ export class UserService {
     );
   }
 
-  getUserById(id: number): Observable<User> {
-    return this.httpClient.get<User>(`${this.serviceUri}getuser/${id}`);
+  getUserById(id: number): Observable<ApiResponse<UserDetail>> {
+    return this.httpClient.get<ApiResponse<UserDetail>>(
+      `${this.serviceUri}getuser/${id}`
+    );
   }
 }

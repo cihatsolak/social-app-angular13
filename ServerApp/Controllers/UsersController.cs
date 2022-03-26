@@ -1,6 +1,6 @@
 ﻿namespace ServerApp.Controllers
 {
-   
+   [Authorize]
     public class UsersController : BaseApiController
     {
         private readonly ISocialRepository _socialRepository;
@@ -28,7 +28,7 @@
             return Ok(new ResultData<List<UserForListDto>>(9001, "İşlem Başarılı.", userForListDtos));
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(int id)
         {
             var user = await _socialRepository.GetUserByIdAsync(id);

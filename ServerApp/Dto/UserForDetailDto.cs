@@ -13,6 +13,7 @@
         public string Hobbies { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+        public string ProfileImageUrl { get; set; }
         public List<ImageForDetailDto> Images { get; set; }
     }
 }

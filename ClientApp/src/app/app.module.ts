@@ -20,6 +20,8 @@ import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth-guards';
 import { ErrorInterceptor } from './_services/error.intercaptor';
 import { JwtModule } from '@auth0/angular-jwt';
+import { MemberDetailsComponent } from './members/member-details/member-details.component';
+import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -38,6 +40,8 @@ export function tokenGetter() {
     HomeComponent,
     MessagesComponent,
     NotfoundComponent,
+    MemberDetailsComponent,
+    PhotoGalleryComponent,
   ],
   imports: [
     BrowserModule,
