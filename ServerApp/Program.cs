@@ -23,6 +23,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 builder.Services.AddScoped<ISocialRepository, SocialRepository>();
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddAuthentication(options =>
 {
@@ -79,7 +80,7 @@ app.UseExceptionHandler(appError =>
         var exception = context.Features.Get<IExceptionHandlerFeature>();
         if (exception != null)
         {
-            await context.Response.WriteAsync(new ResultDetails()
+            await context.Response.WriteAsync(new Result()
             {
                 StatusCode = context.Response.StatusCode,
                 Message = exception.Error.Message

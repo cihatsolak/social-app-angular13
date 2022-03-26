@@ -16,3 +16,4 @@ global using System.Text.Json;
 global using Microsoft.AspNetCore.Diagnostics;
 global using System.Net;
 global using System.Text.Json.Serialization;
+global using AutoMapper;

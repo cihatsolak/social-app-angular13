@@ -48,3 +48,5 @@ C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\obj\Debug\net6.0\ref\S
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\obj\Debug\net6.0\ServerApp.pdb
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\obj\Debug\net6.0\ServerApp.genruntimeconfig.cache
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\bin\Debug\net6.0\Data\users.json
+C:\Users\HPProbook\Desktop\social-app-angular13\ServerApp\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\HPProbook\Desktop\social-app-angular13\ServerApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

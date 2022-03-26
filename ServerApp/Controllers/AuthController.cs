@@ -43,7 +43,7 @@
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
             if (!ModelState.IsValid)
-                return BadRequest(new ResultDetails(9004, "Kullanıcı dogrulanamadı."));
+                return BadRequest(new Result(9004, "Kullanıcı dogrulanamadı."));
 
             var user = await _userManager.FindByNameAsync(userForLoginDto.UserName);
             if (user is null)
