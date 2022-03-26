@@ -1,10 +1,10 @@
 ﻿namespace ServerApp.Data
 {
-    public class SocialRepository : ISocialRepository
+    public class SocialRepository : Repository<User>, ISocialRepository
     {
         private readonly SocialDbContext _context;
 
-        public SocialRepository(SocialDbContext context)
+        public SocialRepository(SocialDbContext context) : base(context)
         {
             _context = context;
         }

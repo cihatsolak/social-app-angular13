@@ -1,6 +1,6 @@
 ﻿namespace ServerApp.Controllers
 {
-   [Authorize]
+    //[Authorize]
     public class UsersController : BaseApiController
     {
         private readonly ISocialRepository _socialRepository;
@@ -39,6 +39,26 @@
             var userForDetailDto = _mapper.Map<UserForDetailDto>(user);
 
             return Ok(new ResultData<UserForDetailDto>(9001, "İşlem Başarılı.", userForDetailDto));
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id, UserForUpdateDto userForUpdateDto)
+        {
+            _ = int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier).Value, out int userId);
+
+            if (userId != id)
+                return BadRequest(new Result(1001, "Yetkisiz erişim."));
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var user = await _socialRepository.GetUserByIdAsync(id);
+
+            _mapper.Map(userForUpdateDto, user);
+
+            _socialRepository.Update(user);
+
+            return Ok(new Result(9001, "İşlem Başarılı"));
         }
     }
 }

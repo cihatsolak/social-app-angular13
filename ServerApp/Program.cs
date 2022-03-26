@@ -22,6 +22,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.RequireUniqueEmail = true;
 });
 
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<ISocialRepository, SocialRepository>();
 builder.Services.AddAutoMapper(typeof(Program));
 
