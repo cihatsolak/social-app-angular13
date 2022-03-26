@@ -45,7 +45,10 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressModelStateInvalidFilter = true;
 });
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(opt =>
+{
+    opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -76,7 +79,7 @@ app.UseExceptionHandler(appError =>
         var exception = context.Features.Get<IExceptionHandlerFeature>();
         if (exception != null)
         {
-            await context.Response.WriteAsync(new ErrorDetails()
+            await context.Response.WriteAsync(new ResultDetails()
             {
                 StatusCode = context.Response.StatusCode,
                 Message = exception.Error.Message

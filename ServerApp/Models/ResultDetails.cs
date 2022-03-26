@@ -1,16 +1,16 @@
 ﻿namespace ServerApp.Models
 {
-    public class ErrorDetails
+    public class ResultDetails
     {
         public int StatusCode { get; set; }
         public string Message { get; set; }
 
-        public ErrorDetails()
+        public ResultDetails()
         {
 
         }
 
-        public ErrorDetails(int statusCode, string message)
+        public ResultDetails(int statusCode, string message)
         {
             StatusCode = statusCode;
             Message = message;

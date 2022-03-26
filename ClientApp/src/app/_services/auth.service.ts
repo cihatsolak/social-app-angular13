@@ -15,7 +15,7 @@ export class AuthService {
 
   login(userForLoginDto: any): Observable<void> {
     return this.httpClient
-      .post(`${this.serviceUri}/users/login`, userForLoginDto)
+      .post(`${this.serviceUri}/auth/login`, userForLoginDto)
       .pipe(
         map((response: any) => {
           const apiResult = response;

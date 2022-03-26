@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vbax19W39Rr848eQMTmCcouhsqo+GbTb35KUPNyQRmK0z3fRKvaWBxyLymLPz6Aq6lwsnDdzHLBPM7k6IFw6ew==",
+  "dgSpecHash": "uFKM5GFYErG48L7H9lCmBMLf0kV9/FO9VRnr7Pjk4W+hXC6UK1EIqRlIZf2GMVctMsWsDJseCLVb18iihiBXzQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\ServerApp\\ServerApp.csproj",
+  "projectFilePath": "C:\\Users\\HPProbook\\desktop\\social-app-angular13\\ServerApp\\ServerApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HPProbook\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\HPProbook\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.3\\microsoft.aspnetcore.authentication.jwtbearer.6.0.3.nupkg.sha512",

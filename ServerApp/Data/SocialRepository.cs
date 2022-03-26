@@ -14,7 +14,7 @@
             return await _context.Users.Include(p => p.Images).FirstOrDefaultAsync(p => p.Id.Equals(id));
         }
 
-        public async Task<IEnumerable<User>> GetUsers()
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
             return await _context.Users.Include(p => p.Images).ToListAsync();
         }
