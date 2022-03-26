@@ -1,0 +1,25 @@
+<div class="my-3">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input #name type="text" class="form-control" id="name" />
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Price</label>
+    <input #price type="number" class="form-control" id="price" />
+  </div>
+  <div class="mb-3 form-check">
+    <input #isactive type="checkbox" class="form-check-input" id="isActive" />
+    <label class="form-check-label" for="isActive">Active</label>
+  </div>
+  <button
+    class="btn btn-success"
+    (click)="
+      add(name.value, price.value, isactive.checked);
+      name.value = '';
+      price.value = '';
+      isactive.checked = false
+    "
+  >
+    Ekle
+  </button>
+</div>

@@ -1,0 +1,87 @@
+<div class="container my-2">
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="register()">
+        <h2>Register</h2>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            [(ngModel)]="userForRegisterDto.name"
+            #name="ngModel"
+            class="form-control"
+            name="name"
+            required
+            minlength="5"
+            maxlength="25"
+          />
+          <div class="alert alert-danger" *ngIf="name.invalid && name.touched">
+            <p *ngIf="name.errors?.['required']">Name is required</p>
+            <p *ngIf="name.errors?.['minlength']">Min. 5 characters</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input
+            type="text"
+            [(ngModel)]="userForRegisterDto.username"
+            #username="ngModel"
+            class="form-control"
+            name="username"
+            required
+            minlength="8"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="username.invalid && username.touched"
+          >
+            <p *ngIf="username.errors?.['required']">Username is required</p>
+            <p *ngIf="username.errors?.['minlength']">Min. 8 characters</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="userForRegisterDto.email"
+            #email="ngModel"
+            class="form-control"
+            email
+            required
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="email.invalid && email.touched"
+          >
+            <p *ngIf="email.errors?.['required']">Email is required</p>
+            <p *ngIf="email.errors?.['email']">Invalid email</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            [(ngModel)]="userForRegisterDto.password"
+            #password="ngModel"
+            class="form-control"
+            name="password"
+            required
+            minlength="6"
+            maxlength="10"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="password.invalid && password.touched"
+          >
+            <p *ngIf="password.errors?.['required']">Password is required</p>
+            <p *ngIf="password.errors?.['minlength']">Min. 6 characters</p>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

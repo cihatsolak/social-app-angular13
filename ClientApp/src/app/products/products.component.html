@@ -1,0 +1,55 @@
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-7">
+      <table
+        class="table table-bordered table-striped"
+        *ngIf="products !== null"
+      >
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Düzenle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let product of products"
+            [class.bg-secondary]="product.isActive == false"
+          >
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="onSelectProduct(product)"
+              >
+                Edit
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="delete(product.id)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5">
+      <app-product-details
+        [product]="selectedProduct"
+        [products]="products"
+      ></app-product-details>
+      <app-product-form
+        [products]="products"
+        *ngIf="!selectedProduct"
+      ></app-product-form>
+    </div>
+  </div>
+</div>

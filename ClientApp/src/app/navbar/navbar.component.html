@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container px-5">
+    <a class="navbar-brand" routerLink="/home">Social App</a>
+    <ul *ngIf="loggedIn()" class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/members" routerLinkActive="active"
+          >Members</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/friends" routerLinkActive="active"
+          >Friends</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/messages" routerLinkActive="active"
+          >Messages</a
+        >
+      </li>
+    </ul>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul *ngIf="loggedIn()" class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#!">{{ authService.decodedToken.name }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+      <form
+        *ngIf="!loggedIn()"
+        #form="ngForm"
+        class="d-flex mx-auto"
+        (ngSubmit)="login()"
+      >
+        <input
+          class="form-control form-control-sm mx-1"
+          [(ngModel)]="userForLoginDto.username"
+          type="text"
+          name="username"
+          placeholder="Username"
+          required
+          minlength="5"
+        />
+        <input
+          class="form-control form-control-sm mx-1"
+          [(ngModel)]="userForLoginDto.password"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+          minlength="6"
+        />
+        <button class="btn btn-success" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</nav>

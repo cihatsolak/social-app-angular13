@@ -1,0 +1,38 @@
+<div *ngIf="product" class="my-3">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input
+      [value]="product.name"
+      #name
+      type="text"
+      class="form-control"
+      id="name"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Price</label>
+    <input
+      [value]="product.price"
+      #price
+      type="number"
+      class="form-control"
+      id="price"
+    />
+  </div>
+  <div class="mb-3 form-check">
+    <input
+      [checked]="product.isActive"
+      #isactive
+      type="checkbox"
+      class="form-check-input"
+      id="isActive"
+    />
+    <label class="form-check-label" for="isActive">Active</label>
+  </div>
+  <button
+    class="btn btn-primary"
+    (click)="update(product.id, name.value, price.value, isactive.checked)"
+  >
+    Save
+  </button>
+</div>
