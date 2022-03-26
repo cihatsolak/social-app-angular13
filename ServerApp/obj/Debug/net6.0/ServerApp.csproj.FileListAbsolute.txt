@@ -1,6 +1,5 @@
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\bin\Debug\net6.0\appsettings.json
-C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\bin\Debug\net6.0\Models\users.json
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\bin\Debug\net6.0\ServerApp.exe
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\bin\Debug\net6.0\ServerApp.deps.json
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\bin\Debug\net6.0\ServerApp.runtimeconfig.json
@@ -48,3 +47,4 @@ C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\obj\Debug\net6.0\Serve
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\obj\Debug\net6.0\ref\ServerApp.dll
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\obj\Debug\net6.0\ServerApp.pdb
 C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\obj\Debug\net6.0\ServerApp.genruntimeconfig.cache
+C:\Users\HPProbook\desktop\social-app-angular13\ServerApp\bin\Debug\net6.0\Data\users.json

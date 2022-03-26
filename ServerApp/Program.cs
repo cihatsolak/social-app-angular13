@@ -22,7 +22,8 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.RequireUniqueEmail = true;
 });
 
-builder.Services.AddAuthentication(options => {
+builder.Services.AddAuthentication(options =>
+{
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(jwtBearerOptions =>
@@ -55,7 +56,11 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-
+await using (var scope = app.Services.CreateAsyncScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+    await SeedDatabase.Seed(userManager);
+}
 
 app.UseSwagger();
 app.UseSwaggerUI();

@@ -1,6 +1,6 @@
 [
   {
-    "Username": "Elba",
+    "UserName": "Elba",
     "Email": "elbacote@equitox.com",
     "Gender": "female",
     "DateOfBirth": "1995-07-08",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "Username": "Tamika",
+    "UserName": "Tamika",
     "Email": "tamikacote@equitox.com",
     "Gender": "female",
     "DateOfBirth": "1975-02-14",
@@ -44,7 +44,7 @@
     ]
   },
   {
-    "Username": "Elisabeth",
+    "UserName": "Elisabeth",
     "Email": "elisabethcote@equitox.com",
     "Gender": "female",
     "DateOfBirth": "1990-06-01",
@@ -66,7 +66,7 @@
     ]
   },
   {
-    "Username": "Toni",
+    "UserName": "Toni",
     "Email": "tonicote@equitox.com",
     "Gender": "female",
     "DateOfBirth": "1996-01-26",
@@ -88,7 +88,7 @@
     ]
   },
   {
-    "Username": "Tabatha",
+    "UserName": "Tabatha",
     "Email": "tabathacote@equitox.com",
     "Gender": "female",
     "DateOfBirth": "1982-02-23",
@@ -110,7 +110,7 @@
     ]
   },
   {
-    "Username": "Shirley",
+    "UserName": "Shirley",
     "Email": "shirleycote@equitox.com",
     "Gender": "female",
     "DateOfBirth": "1992-07-15",
@@ -132,7 +132,7 @@
     ]
   },
   {
-    "Username": "Lawanda",
+    "UserName": "Lawanda",
     "Email": "lawandacote@equitox.com",
     "Gender": "female",
     "DateOfBirth": "1983-03-26",
@@ -154,7 +154,7 @@
     ]
   },
   {
-    "Username": "Hurst",
+    "UserName": "Hurst",
     "Email": "hurstcote@equitox.com",
     "Gender": "male",
     "DateOfBirth": "1979-01-09",
@@ -176,7 +176,7 @@
     ]
   },
   {
-    "Username": "Salinas",
+    "UserName": "Salinas",
     "Email": "salinascote@equitox.com",
     "Gender": "male",
     "DateOfBirth": "1973-07-07",
@@ -198,7 +198,7 @@
     ]
   },
   {
-    "Username": "Chang",
+    "UserName": "Chang",
     "Email": "changcote@equitox.com",
     "Gender": "male",
     "DateOfBirth": "1980-04-21",
@@ -220,7 +220,7 @@
     ]
   },
   {
-    "Username": "Downs",
+    "UserName": "Downs",
     "Email": "downscote@equitox.com",
     "Gender": "male",
     "DateOfBirth": "1983-03-18",
@@ -242,7 +242,7 @@
     ]
   },
   {
-    "Username": "Herrera",
+    "UserName": "Herrera",
     "Email": "herreracote@equitox.com",
     "Gender": "male",
     "DateOfBirth": "1983-01-13",
@@ -264,7 +264,7 @@
     ]
   },
   {
-    "Username": "Hickman",
+    "UserName": "Hickman",
     "Email": "hickmancote@equitox.com",
     "Gender": "male",
     "DateOfBirth": "1971-04-14",
@@ -286,7 +286,7 @@
     ]
   },
   {
-    "Username": "Pratt",
+    "UserName": "Pratt",
     "Email": "prattcote@equitox.com",
     "Gender": "male",
     "DateOfBirth": "1978-11-14",
