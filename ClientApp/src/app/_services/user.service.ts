@@ -32,6 +32,10 @@ export class UserService {
     }
 
     if (userParams != null) {
+      if (userParams.orderby != null) {
+        httpParams = httpParams.set('orderby', userParams.orderby);
+      }
+
       if (userParams.gender != null) {
         httpParams = httpParams.set('gender', userParams.gender);
       }

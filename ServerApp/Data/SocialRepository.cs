@@ -17,7 +17,8 @@
         public async Task<IEnumerable<User>> GetUsersAsync(UserQueryParams userQueryParams)
         {
             var userTable = _context.Users.
-                 Where(p => !p.Id.Equals(userQueryParams.UserId)).Include(p => p.Images)
+                 Where(p => !p.Id.Equals(userQueryParams.UserId))
+                .Include(p => p.Images)
                 .AsQueryable();
 
             if (userQueryParams.Followers)
@@ -54,6 +55,24 @@
             if (!string.IsNullOrWhiteSpace(userQueryParams.Country))
             {
                 userTable = userTable.Where(p => p.Country.ToLower().Equals(userQueryParams.Country.ToLower()));
+            }
+
+            if (!string.IsNullOrEmpty(userQueryParams.OrderBy))
+            {
+                if (userQueryParams.OrderBy.Equals("age"))
+                {
+                    userTable = userTable.OrderBy(p => p.DateOfBirth);
+                }
+
+                if (userQueryParams.OrderBy.Equals("createdDate"))
+                {
+                    userTable = userTable.OrderByDescending(p => p.CreatedDate);
+                }
+
+                if (userQueryParams.OrderBy.Equals("lastActive"))
+                {
+                    userTable = userTable.OrderByDescending(p => p.LastActive);
+                }
             }
 
             return await userTable.ToListAsync();

@@ -76,6 +76,22 @@
         </div>
       </div>
       <div class="col-md-9">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="float-end">
+              <select
+                name="orderBy"
+                class="form-select form-select-sm"
+                [(ngModel)]="userParams.orderby"
+                (change)="getUsers()"
+              >
+                <option value="age">Age</option>
+                <option value="createdDate">Created Date</option>
+                <option value="lastActive">Last Active</option>
+              </select>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div
             *ngFor="let user of users"

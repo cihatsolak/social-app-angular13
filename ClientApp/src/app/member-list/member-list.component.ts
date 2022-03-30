@@ -18,10 +18,12 @@ export class MemberListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.userParams.orderby = 'lastActive';
     this.getUsers();
   }
 
   getUsers() {
+    console.log(this.userParams);
     this.loading = true;
     this.userService.getUsers(null, this.userParams).subscribe(
       (apiResponse) => {
