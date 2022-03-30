@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiResponse } from '../_models/ApiResponse';
@@ -17,9 +17,20 @@ export class UserService {
   serviceUri: string = 'https://localhost:7095/api/users/';
   constructor(private httpClient: HttpClient) {}
 
-  getUsers(): Observable<ApiResponse<User[]>> {
+  getUsers(followParams?: any): Observable<ApiResponse<User[]>> {
+    let httpParams = new HttpParams();
+    debugger;
+    if (followParams == 'followers') {
+      httpParams = httpParams.set('followers', 'true');
+    }
+
+    if (followParams == 'followings') {
+      httpParams = httpParams.set('followings', 'true');
+    }
+
     return this.httpClient.get<ApiResponse<User[]>>(
-      `${this.serviceUri}getusers`
+      `${this.serviceUri}getusers`,
+      { params: httpParams }
     );
   }
 

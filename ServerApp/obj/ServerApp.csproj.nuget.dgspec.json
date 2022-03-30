@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\ServerApp\\ServerApp.csproj": {}
+    "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\serverapp\\ServerApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\ServerApp\\ServerApp.csproj": {
+    "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\serverapp\\ServerApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\ServerApp\\ServerApp.csproj",
+        "projectUniqueName": "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\serverapp\\ServerApp.csproj",
         "projectName": "ServerApp",
-        "projectPath": "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\ServerApp\\ServerApp.csproj",
+        "projectPath": "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\serverapp\\ServerApp.csproj",
         "packagesPath": "C:\\Users\\HPProbook\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\ServerApp\\obj\\",
+        "outputPath": "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\serverapp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HPProbook\\AppData\\Roaming\\NuGet\\NuGet.Config",
