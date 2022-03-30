@@ -5,20 +5,24 @@
     public class UsersController : BaseApiController
     {
         private readonly ISocialRepository _socialRepository;
+        private readonly IFollowRepository _followRepository;
         private readonly IMapper _mapper;
 
         public UsersController(
-            ISocialRepository socialRepository, 
-            IMapper mapper)
+            ISocialRepository socialRepository,
+            IMapper mapper, 
+            IFollowRepository followRepository)
         {
             _socialRepository = socialRepository;
             _mapper = mapper;
+            _followRepository = followRepository;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
+        public async Task<IActionResult> GetUsers([FromQuery] UserQueryParams userQueryParams)
         {
-            var users = await _socialRepository.GetUsersAsync();
+            userQueryParams.UserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            var users = await _socialRepository.GetUsersAsync(userQueryParams);
             if (!users.Any())
             {
                 return NotFound(new Result(1000, "Kullanıcı bulunamadı."));
@@ -59,6 +63,28 @@
 
             _socialRepository.Update(user);
 
+            return Ok(new Result(9001, "İşlem Başarılı"));
+        }
+
+        [HttpPost("{userId:int:min(0)}")]
+        public async Task<IActionResult> FollowUser(int userId)
+        {
+            int myUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+            var isAlreadyFollowed = await _followRepository.IsAlreadyFollowAsync(myUserId, userId);
+            if (isAlreadyFollowed)
+                return BadRequest(new Result(1002, "Zaten kullanıcıyı takip ediyorsunuz."));
+
+            if (await _socialRepository.GetUserByIdAsync(userId) == null)
+                return NotFound(new Result(1003, "Takip edilecek kullanıcı bulunamadı."));
+
+            var follow = new UserToUser
+            {
+                UserId = userId,
+                FollowerId = myUserId
+            };
+
+            await _followRepository.AddAsync(follow);
             return Ok(new Result(9001, "İşlem Başarılı"));
         }
     }

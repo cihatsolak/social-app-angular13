@@ -35,4 +35,11 @@ export class UserService {
       userDetail
     );
   }
+
+  followUserById(userId: number): Observable<ApiResponse<null>> {
+    return this.httpClient.post<ApiResponse<null>>(
+      `${this.serviceUri}followuser/${userId}`,
+      {}
+    );
+  }
 }

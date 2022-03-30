@@ -36,7 +36,13 @@
             <h3>{{ userDetail?.name }}'s Profile</h3>
           </div>
           <div class="btn-group float-end" role="group">
-            <button type="button" class="btn btn-danger">Add Friend</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="followUser(userDetail.id)"
+            >
+              {{ followText }}
+            </button>
             <button type="button" class="btn btn-success">Message</button>
           </div>
         </div>

@@ -11,25 +11,34 @@ import { UserService } from 'src/app/_services/user.service';
 })
 export class MemberDetailsComponent implements OnInit {
   userDetail!: UserDetail;
+  followText: string = 'Takip Et';
   constructor(
+    private route: ActivatedRoute,
     private userService: UserService,
-    private alertifyService: AlertifyService,
-    private route: ActivatedRoute
+    private alertifyService: AlertifyService
   ) {}
 
   ngOnInit(): void {
-    this.getUserById();
+    this.route.data.subscribe((routeData) => {
+      this.userDetail = routeData['ApiResponse']['data'];
+    });
   }
 
-  getUserById() {
-    let userId: number = this.route.snapshot.params['id'];
-    this.userService.getUserById(userId).subscribe(
-      (apiResponse) => {
-        this.userDetail = apiResponse.data;
+  followUser(userId: number) {
+    this.userService.followUserById(userId).subscribe(
+      (next) => {
+        this.alertifyService.success(
+          `${this.userDetail.name} kullanıcısı takip ediyorsunuz.`
+        );
+        this.followText = 'Takip Ediyorsunuz';
       },
       (error) => {
-        this.alertifyService.error(error);
+        this.alertifyService.error(error?.message);
       }
     );
+  }
+
+  followed(): boolean {
+    return true;
   }
 }

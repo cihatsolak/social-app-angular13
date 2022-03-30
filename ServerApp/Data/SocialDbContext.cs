@@ -17,15 +17,18 @@
             builder.Entity<UserToUser>()
                 .HasOne(p => p.User)
                 .WithMany(x => x.Followers)
-                .HasForeignKey(d => d.UserId);
+                .HasForeignKey(d => d.FollowerId);
 
             builder.Entity<UserToUser>()
                .HasOne(p => p.Follower)
                .WithMany(x => x.Followings)
-               .HasForeignKey(d => d.FollowerId);
+               .HasForeignKey(d => d.UserId);
+
+            builder.Entity<UserToUser>().ToTable("UserToUser");
         }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<UserToUser> UserToUsers { get; set; }
     }
 }
