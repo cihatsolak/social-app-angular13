@@ -24,11 +24,22 @@
                .WithMany(x => x.Followings)
                .HasForeignKey(d => d.UserId);
 
+            builder.Entity<Message>()
+                .HasOne(p => p.Sender)
+                .WithMany(p => p.MessagesSent)
+                .HasForeignKey(p => p.SenderId);
+
+            builder.Entity<Message>()
+               .HasOne(p => p.Recipient)
+               .WithMany(p => p.MessagesReceived)
+               .HasForeignKey(p => p.RecipientId);
+
             builder.Entity<UserToUser>().ToTable("UserToUser");
         }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<UserToUser> UserToUsers { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }

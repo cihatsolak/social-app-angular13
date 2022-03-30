@@ -25,6 +25,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<ISocialRepository, SocialRepository>();
 builder.Services.AddScoped<IFollowRepository, FollowRepository>();
+builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 builder.Services.AddScoped<LastActiveActionFilter>();
 builder.Services.AddAutoMapper(typeof(Program));
 

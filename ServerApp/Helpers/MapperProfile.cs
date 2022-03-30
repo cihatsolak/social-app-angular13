@@ -15,6 +15,8 @@
 
             CreateMap<Image, ImageForDetailDto>();
             CreateMap<UserForUpdateDto, User>();
+
+            CreateMap<MessageForCreateDto, Message>().ReverseMap();
         }
 
         private string GetProfileImageUrl(User user)
