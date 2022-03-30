@@ -3,28 +3,108 @@
 <div class="container my-3">
   <div class="user-list">
     <div class="row">
-      <div *ngFor="let user of users" class="col-lg-3 col-md-4 col sm-6 col-12">
-        <div class="user_profile_info">
-          <div class="user-up-info">
-            <img
-              src="{{
-                user.imageUrl ||
-                  'https://kstu.edu.tr/kstu-file/uploads/default-user-image.png'
-              }}"
-              alt=""
-            />
-            <h3>
-              {{ user.name }}, <small>{{ user.age }}</small>
-            </h3>
-            <h4 style="height: 20px">{{ user.country }}, {{ user.city }}</h4>
-            <button class="btn btn-outline-primary btn-sm">
-              <i class="fas fa-plus"></i>
-              Arkadaş Ekle
-            </button>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-header">Filters By</div>
+          <div class="card-body">
+            <form #form="ngForm" (ngSubmit)="getUsers()">
+              <div class="mb-3">
+                <select
+                  name="gender"
+                  class="form-select"
+                  aria-label="Default select example"
+                  [(ngModel)]="userParams.gender"
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Famele</option>
+                </select>
+              </div>
+              <hr />
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col">
+                    <label for="minAge" class="form-label">Min Age</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="minAge"
+                      id="minAge"
+                      [(ngModel)]="userParams.minAge"
+                    />
+                  </div>
+                  <div class="col">
+                    <label for="maxAge" class="form-label">Max Age</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="maxAge"
+                      id="maxAge"
+                      [(ngModel)]="userParams.maxAge"
+                    />
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <hr />
+              <div class="mb-3">
+                <div class="col">
+                  <label for="city" class="form-label">City</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="city"
+                    [(ngModel)]="userParams.city"
+                  />
+                </div>
+              </div>
+              <hr />
+              <div class="mb-3">
+                <div class="col">
+                  <label for="country" class="form-label">Country</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="country"
+                    [(ngModel)]="userParams.country"
+                  />
+                </div>
+              </div>
+              <hr />
+              <button class="btn btn-primary btn-sm">Filter</button>
+            </form>
           </div>
-          <a [routerLink]="['/members/', user.id]" href="#" class="view-more"
-            >View Profile</a
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div
+            *ngFor="let user of users"
+            class="col-lg-4 col-md-4 col sm-6 col-12"
           >
+            <div class="user_profile_info">
+              <div class="user-up-info">
+                <img
+                  src="{{
+                    user.imageUrl ||
+                      'https://kstu.edu.tr/kstu-file/uploads/default-user-image.png'
+                  }}"
+                  alt=""
+                />
+                <h3>
+                  {{ user.name }}, <small>{{ user.age }}</small>
+                </h3>
+                <h4 style="height: 10px">
+                  {{ user.country }}, {{ user.city }}
+                </h4>
+              </div>
+              <a
+                [routerLink]="['/members/', user.id]"
+                href="#"
+                class="view-more"
+                >View Profile</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>

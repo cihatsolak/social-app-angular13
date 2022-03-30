@@ -10,6 +10,7 @@ import { UserService } from '../_services/user.service';
 })
 export class MemberListComponent implements OnInit {
   users!: User[];
+  userParams: any = {};
   public loading = false;
   constructor(
     private userService: UserService,
@@ -22,7 +23,7 @@ export class MemberListComponent implements OnInit {
 
   getUsers() {
     this.loading = true;
-    this.userService.getUsers().subscribe(
+    this.userService.getUsers(null, this.userParams).subscribe(
       (apiResponse) => {
         this.users = apiResponse.data;
         this.loading = false;

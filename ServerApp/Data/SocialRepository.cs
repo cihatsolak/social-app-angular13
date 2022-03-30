@@ -32,6 +32,30 @@
                 userTable = userTable.Where(p => result.Contains(p.Id));
             }
 
+            if (!string.IsNullOrWhiteSpace(userQueryParams.Gender))
+            {
+                userTable = userTable.Where(p => p.Gender.ToLower().Equals(userQueryParams.Gender.ToLower()));
+            }
+
+            if (userQueryParams.MinAge != 18 || userQueryParams.MaxAge != 100)
+            {
+                var today = DateTime.Now;
+                var minDate = today.AddYears(-(userQueryParams.MaxAge + 1));
+                var maxDate = today.AddYears(-userQueryParams.MinAge);
+
+                userTable = userTable.Where(p => p.DateOfBirth >= minDate && p.DateOfBirth <= maxDate);
+            }
+
+            if (!string.IsNullOrWhiteSpace(userQueryParams.City))
+            {
+                userTable = userTable.Where(p => p.City.ToLower().Equals(userQueryParams.City.ToLower()));
+            }
+
+            if (!string.IsNullOrWhiteSpace(userQueryParams.Country))
+            {
+                userTable = userTable.Where(p => p.Country.ToLower().Equals(userQueryParams.Country.ToLower()));
+            }
+
             return await userTable.ToListAsync();
         }
 
