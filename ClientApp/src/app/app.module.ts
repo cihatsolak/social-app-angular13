@@ -26,6 +26,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { TimeagoModule } from 'ngx-timeago';
 import { MemberDetailsResolver } from './_resolvers/member-detail.resolver';
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -51,6 +52,14 @@ export function tokenGetter() {
   imports: [
     BrowserModule,
     TimeagoModule.forRoot(),
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.wanderingCubes,
+      backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+      backdropBorderRadius: '4px',
+      primaryColour: '#ffffff',
+      secondaryColour: '#ffffff',
+      tertiaryColour: '#ffffff',
+    }),
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

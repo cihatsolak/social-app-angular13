@@ -19,7 +19,7 @@ export class UserService {
 
   getUsers(followParams?: any): Observable<ApiResponse<User[]>> {
     let httpParams = new HttpParams();
-    debugger;
+
     if (followParams == 'followers') {
       httpParams = httpParams.set('followers', 'true');
     }

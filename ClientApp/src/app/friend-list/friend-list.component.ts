@@ -10,6 +10,7 @@ import { UserService } from '../_services/user.service';
 })
 export class FriendListComponent implements OnInit {
   users!: User[];
+  public loading = false;
   followParams: string = 'followings';
 
   constructor(
@@ -22,12 +23,15 @@ export class FriendListComponent implements OnInit {
   }
 
   getUsers() {
+    this.loading = true;
     this.userService.getUsers(this.followParams).subscribe(
       (apiResponse) => {
         this.users = apiResponse.data;
+        this.loading = false;
       },
       (error) => {
         this.alertifyService.error(error);
+        this.loading = false;
       }
     );
   }

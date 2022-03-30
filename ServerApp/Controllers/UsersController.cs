@@ -21,6 +21,7 @@
         [HttpGet]
         public async Task<IActionResult> GetUsers([FromQuery] UserQueryParams userQueryParams)
         {
+            await Task.Delay(2000);
             userQueryParams.UserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
             var users = await _socialRepository.GetUsersAsync(userQueryParams);
             if (!users.Any())
