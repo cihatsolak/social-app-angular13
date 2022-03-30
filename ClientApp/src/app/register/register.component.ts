@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertifyService } from '../_services/alertify.service';
 import { AuthService } from '../_services/auth.service';
 
@@ -11,7 +12,8 @@ export class RegisterComponent implements OnInit {
   userForRegisterDto: any = {};
   constructor(
     private authService: AuthService,
-    private alertifyService: AlertifyService
+    private alertifyService: AlertifyService,
+    private route: Router
   ) {}
 
   ngOnInit(): void {}
@@ -23,6 +25,11 @@ export class RegisterComponent implements OnInit {
       },
       (error) => {
         this.alertifyService.error(error);
+      },
+      () => {
+        this.authService.login(this.userForRegisterDto).subscribe(() => {
+          this.route.navigate(['/members']);
+        });
       }
     );
   }

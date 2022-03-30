@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XVVeq0zvFFN+w2pJOpVmjch0C+1Sqk2B48M3OyP5R6xJ+SYfW0D6kphArqeI9KkC0tPMGp0LUZ5atC2sZ63UOQ==",
+  "dgSpecHash": "ds623R5ljeQliCiLcuwQb/j339O7EskKKyRo3jzmT+D67Q68DPWKdxrajq9PXwANlp+krQwyJ6huxZbm6i1jFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HPProbook\\desktop\\social-app-angular13\\serverapp\\ServerApp.csproj",
+  "projectFilePath": "C:\\Users\\HPProbook\\Desktop\\social-app-angular13\\ServerApp\\ServerApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HPProbook\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\HPProbook\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

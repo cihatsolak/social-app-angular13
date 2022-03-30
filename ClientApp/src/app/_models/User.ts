@@ -12,7 +12,7 @@ export class User {
   country!: string;
   introduction!: string;
   hobbies!: string;
-  image!: Image;
+  imageUrl!: string;
 }
 
 export class UserDetail extends User {

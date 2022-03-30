@@ -1,6 +1,7 @@
 ﻿namespace ServerApp.Controllers
 {
     [Authorize]
+    [ServiceFilter(typeof(LastActiveActionFilter))]
     public class UsersController : BaseApiController
     {
         private readonly ISocialRepository _socialRepository;

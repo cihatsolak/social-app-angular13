@@ -29,7 +29,10 @@
                 Name = userForRegisterDto.Name,
                 Gender = userForRegisterDto.Gender,
                 CreatedDate = DateTime.Now.ToUniversalTime(),
-                LastActive = DateTime.Now.ToUniversalTime()
+                LastActive = DateTime.Now.ToUniversalTime(),
+                DateOfBirth = userForRegisterDto.DateOfBirth,
+                Country = userForRegisterDto.Country,
+                City = userForRegisterDto.City
             };
 
             var identityResult = await _userManager.CreateAsync(user, userForRegisterDto.Password);

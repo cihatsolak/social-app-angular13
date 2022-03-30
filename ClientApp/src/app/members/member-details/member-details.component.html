@@ -4,7 +4,10 @@
       <div class="card" style="width: 18rem">
         <div class="img-container">
           <img
-            src="{{ userDetail?.profileImageUrl }}"
+            src="{{
+              userDetail?.profileImageUrl ||
+                'https://kstu.edu.tr/kstu-file/uploads/default-user-image.png'
+            }}"
             class="card-img-top img-thumbnail"
             alt="{{ userDetail?.name }}"
           />

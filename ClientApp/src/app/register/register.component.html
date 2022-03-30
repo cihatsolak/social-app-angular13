@@ -3,6 +3,35 @@
     <div class="col-6">
       <form #form="ngForm" (ngSubmit)="register()">
         <h2>Register</h2>
+        <hr />
+        <div class="mb-3">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="radioMale"
+              value="male"
+              name="gender"
+              #gender="ngModel"
+              [(ngModel)]="userForRegisterDto.gender"
+              required
+            />
+            <label class="form-check-label" for="radioMale">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="radioFamele"
+              name="gender"
+              value="famele"
+              #gender="ngModel"
+              [(ngModel)]="userForRegisterDto.gender"
+              required
+            />
+            <label class="form-check-label" for="radioFamele">Famele</label>
+          </div>
+        </div>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <input
@@ -68,14 +97,67 @@
             name="password"
             required
             minlength="6"
-            maxlength="10"
+            maxlength="15"
           />
           <div
             class="alert alert-danger"
             *ngIf="password.invalid && password.touched"
           >
-            <p *ngIf="password.errors?.['required']">Password is required</p>
-            <p *ngIf="password.errors?.['minlength']">Min. 6 characters</p>
+            <p *ngIf="password?.errors?.['required']">Password is required</p>
+            <p *ngIf="password?.errors?.['minlength']">Min. 15 characters</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="date"
+            name="dateOfBirth"
+            #dateOfBirth="ngModel"
+            class="form-control"
+            [(ngModel)]="userForRegisterDto.dateOfBirth"
+            required=""
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="dateOfBirth.invalid && dateOfBirth.touched"
+          >
+            <p *ngIf="dateOfBirth?.errors?.['required']">
+              Date of birth is required
+            </p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input
+            type="text"
+            [(ngModel)]="userForRegisterDto.country"
+            #country="ngModel"
+            class="form-control"
+            name="country"
+            required
+            minlength="2"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="country.invalid && country.touched"
+          >
+            <p *ngIf="country.errors?.['required']">Country is required</p>
+            <p *ngIf="country.errors?.['minlength']">Min. 2 characters</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input
+            type="text"
+            [(ngModel)]="userForRegisterDto.city"
+            #city="ngModel"
+            class="form-control"
+            name="city"
+            required
+            minlength="2"
+          />
+          <div class="alert alert-danger" *ngIf="city.invalid && city.touched">
+            <p *ngIf="city.errors?.['required']">City is required</p>
+            <p *ngIf="city.errors?.['minlength']">Min. 2 characters</p>
           </div>
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="form.invalid">

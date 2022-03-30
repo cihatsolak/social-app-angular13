@@ -29,7 +29,7 @@ export class AuthService {
 
   register(userForRegisterDto: any) {
     return this.httpClient.post(
-      `${this.serviceUri}/users/register`,
+      `${this.serviceUri}/auth/register`,
       userForRegisterDto
     );
   }
